@@ -75,14 +75,11 @@ public class AllTests {
 		userCars.usedCarsMenu();
 		extent.attachReporter(reporter);
 		ExtentTest logger = extent.createTest("Used Cars in Chennai Test");
-		logger.log(Status.INFO, "Mouse Hover on 'Used Cars'");
-		
+		logger.log(Status.INFO, "Mouse Hover on 'Used Cars'");	
 		userCars.selectChennaiUsedCars();
 		logger.log(Status.INFO, "Find Used Cars in Chennai is selected as Location");
-		
 		userCars.modelList();
 		logger.log(Status.INFO, "Popular Models List is Displayed on console");
-		
 		logger.log(Status.PASS, "Used cars in chennai test is passed");
 		logger.addScreenCaptureFromPath(chennaiCars1);
 		logger.addScreenCaptureFromPath(chennaiCars2);
@@ -93,31 +90,23 @@ public class AllTests {
 	@Test(priority = 3)
 	public void testGoogleSignIn() throws InterruptedException {
 		GoogleSignIn signin = new GoogleSignIn(driver);
-		
 		signin.clickSignIn();
 		extent.attachReporter(reporter);
 		ExtentTest logger = extent.createTest("Google Sign In Test");
 		logger.log(Status.INFO, "Sign In button is clicked");
-		
 		signin.googleSignIn();
 		logger.log(Status.INFO, "Continue with Google button is clicked");
-		
 		signin.emailInput("abc@abc");
 		logger.log(Status.INFO, "An invalid email id is entered into Email field");
-		
 		signin.emailNext();
 		logger.log(Status.INFO, "Next button is clicked after entering the invalid email id");
-		
 		signin.getErrorMessage();
 		logger.log(Status.INFO,
 				"Error message is captured successfully and displayed on console");
-		
 		logger.log(Status.PASS, "Google Sign In test is passed");
-
 		logger.addScreenCaptureFromPath(googleSignIn1);
 		logger.addScreenCaptureFromPath(googleSignIn3);
-		extent.flush();
-		
+		extent.flush();	
 	}
 	
 	

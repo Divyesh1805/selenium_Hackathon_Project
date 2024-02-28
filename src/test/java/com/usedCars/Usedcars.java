@@ -36,7 +36,17 @@ public class Usedcars {
 	@FindBy(xpath = "//ul[@class='zw-sr-secLev usedCarMakeModelList popularModels ml-20 mt-10']/li")
 	List<WebElement> modelName;
 	
+	@FindBy(xpath="//a[@data-url='chennai']")
+	WebElement cityChennai;          
 	
+	@FindBy(xpath="//*[@id='headerNewNavWrap']/nav/div/ul/li[7]/ul/li/div[1]/ul/li[1]/span")
+	WebElement findUsedCar;
+	
+	@FindBy(xpath="//*[@id=\"gs_input5\"]")
+	WebElement input;
+	
+	@FindBy(xpath="//*[@id=\"ui-id-20\"]")
+	WebElement drpDown;
 	// Mouse hover on 'Used cars' menu from the main menu bar
 	
 	public void usedCarsMenu() throws InterruptedException {
@@ -52,10 +62,34 @@ public class Usedcars {
 	// Click on 'Used cars in Chennai' link
 	
 	public void selectChennaiUsedCars() {
+		System.out.println("line-58");
+        if(chennaiUsedCars.isDisplayed()) {
+        	System.out.println("visible");
+        	chennaiUsedCars.click();
+        }
+        else {
+        	System.out.println("line 66");
+        	try {
+				Thread.sleep(5000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+        	findUsedCar.click();
+        	if(cityChennai.isDisplayed()) {
+        		System.out.println("inside");
+        		cityChennai.click();
+        		
+        	}else if(input.isDisplayed()){
+        		System.out.println("else");
+        		input.sendKeys("Chennai");
+        		drpDown.click();
+        	}
+        	
+        }
+//		chennaiUsedCars.click();
 		
-		chennaiUsedCars.click();
-		
-//		filePath = System.getProperty("user.dir") + "/Screenshots/UsedCars/UsedCarsInChennai.png";
+
 
 	}
 	

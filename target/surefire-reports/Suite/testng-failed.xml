@@ -8,8 +8,6 @@
           <include name="closeDriver"/>
           <include name="setup"/>
           <include name="testGoogleSignIn"/>
-          <include name="usedCars"/>
-          <include name="upComingBikes"/>
         </methods>
       </class> <!-- com.tests.AllTests -->
     </classes>

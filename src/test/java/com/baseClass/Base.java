@@ -6,6 +6,7 @@ import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 
 public class Base {
@@ -34,8 +35,12 @@ public class Base {
        // Checking which browser is specified in the configuration file and creating the corresponding WebDriver instance
 		if(prop.getProperty("browserName").matches("edge")){		
 			driver = new EdgeDriver();
-		}else if(prop.getProperty("browserName").matches("chrome")){	
-			driver = new ChromeDriver() ;
+		}else if(prop.getProperty("browserName").matches("chrome")){
+			ChromeOptions options = new ChromeOptions();
+			options.addArguments("--disable-notifications");
+			options.addArguments("--disable-geolocation");
+			driver = new ChromeDriver(options) ;
+			
 		}
 		
 		

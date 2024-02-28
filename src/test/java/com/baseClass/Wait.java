@@ -25,4 +25,8 @@ public class Wait {
 	    WebDriverWait waits = new WebDriverWait(driver, Duration.ofSeconds(sec));
 	    waits.until(ExpectedConditions.visibilityOfAllElements(elements));
 	}
+	public void waitVisible(int sec, WebElement element, WebDriver driver) {
+		WebDriverWait waits = new WebDriverWait(driver, Duration.ofSeconds(sec));
+	    waits.until(ExpectedConditions.visibilityOf(element));
+	}
 }
